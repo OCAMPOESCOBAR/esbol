@@ -16,6 +16,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
 import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
+import { AuthenticationComponent } from './login/authentication.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { RegisterComponent } from './login/register.component';
     SidebarComponent,
     BreadcrumbsComponent,
     PagesComponent,
-    RegisterComponent
+    RegisterComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
