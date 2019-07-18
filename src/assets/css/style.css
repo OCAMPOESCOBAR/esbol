@@ -1074,7 +1074,7 @@ sidebar navigation
 }
 
 .sidebar-nav ul li a {
-    color: #687384;
+    color: #ffffff;
     padding: 8px 35px 8px 15px;
     display: block;
     font-size: 14px;
@@ -1128,7 +1128,7 @@ sidebar navigation
     font-size: 24px;
     display: inline-block;
     vertical-align: middle;
-    color: #555f6d;
+    color: #ffffff;
 }
 
 .sidebar-nav>ul>li>a .label {
@@ -1172,7 +1172,7 @@ sidebar navigation
     height: 7px;
     border-width: 1px 0 0 1px;
     border-style: solid;
-    border-color: #687384;
+    border-color: #ffffff;
     right: 1em;
     -webkit-transform: rotate(135deg) translate(0, -50%);
     -ms-transform: rotate(135deg) translate(0, -50%);
@@ -2784,8 +2784,8 @@ Buttons
 
 .btn-info,
 .btn-info.disabled {
-    background: #017f42;
-    border: 1px solid #017f42;
+    background: #167142;
+    border: 1px solid #167142;
     -webkit-box-shadow: 0 2px 2px 0 rgba(66, 165, 245, 0.14), 0 3px 1px -2px rgba(66, 165, 245, 0.2), 0 1px 5px 0 rgba(66, 165, 245, 0.12);
     box-shadow: 0 2px 2px 0 rgba(66, 165, 245, 0.14), 0 3px 1px -2px rgba(66, 165, 245, 0.2), 0 1px 5px 0 rgba(66, 165, 245, 0.12);
     -webkit-transition: 0.2s ease-in;
@@ -2795,8 +2795,8 @@ Buttons
 
 .btn-info:hover,
 .btn-info.disabled:hover {
-    background: #09b964;
-    border: 1px solid #09b964;
+    background: #1eb366;
+    border: 1px solid #1eb366;
     -webkit-box-shadow: 0 14px 26px -12px rgba(23, 105, 255, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(23, 105, 255, 0.2);
     box-shadow: 0 14px 26px -12px rgba(23, 105, 255, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(23, 105, 255, 0.2);
 }
@@ -3181,7 +3181,7 @@ Buttons
 .btn-info.focus,
 .btn-info:focus,
 .show>.btn-info.dropdown-toggle {
-    background-color: #028ee1;
+    background-color: #167142;
     border: 1px solid #028ee1;
 }
 
@@ -3661,7 +3661,7 @@ Form Material page
     background-image: -webkit-gradient(linear, left top, left bottom, from(#398bf7), to(#398bf7)), -webkit-gradient(linear, left top, left bottom, from(#e9edf2), to(#e9edf2));
     background-image: -webkit-linear-gradient(#398bf7, #398bf7), -webkit-linear-gradient(#e9edf2, #e9edf2);
     background-image: -o-linear-gradient(#398bf7, #398bf7), -o-linear-gradient(#e9edf2, #e9edf2);
-    background-image: linear-gradient(#017f42, #017f42), linear-gradient(#e9edf2, #e9edf2);
+    background-image: linear-gradient(#167142, #167142), linear-gradient(#e9edf2, #e9edf2);
     border: 0 none;
     border-radius: 0;
     -webkit-box-shadow: none;
