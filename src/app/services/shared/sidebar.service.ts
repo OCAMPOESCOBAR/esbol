@@ -10,7 +10,8 @@ export class SidebarService {
       submenu: [
         { titulo: 'Profesores', url: '/profesores' },
         { titulo: 'Estudiantes', url: '/estudiantes' },
-        { titulo: 'Horario', url: '/horario' }
+        { titulo: 'Horario', url: '/horario' },
+        { titulo: 'Clase', url: '/clase' }
       ]
     }
   ];
