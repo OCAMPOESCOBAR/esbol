@@ -11,7 +11,7 @@ export class SidebarService {
         { titulo: 'Profesores', url: '/profesores' },
         { titulo: 'Estudiantes', url: '/estudiantes' },
         { titulo: 'Horario', url: '/horario' },
-        { titulo: 'Clase', url: '/clase' }
+        { titulo: 'Materias', url: '/materias' }
       ]
     }
   ];

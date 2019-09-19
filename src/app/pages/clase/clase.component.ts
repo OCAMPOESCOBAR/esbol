@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
 
-declare function inicia();
+declare function iniciaClase();
+
 
 @Component({
   selector: 'app-clase',
@@ -13,7 +14,7 @@ export class ClaseComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    inicia();
+    iniciaClase();
   }
 
 }

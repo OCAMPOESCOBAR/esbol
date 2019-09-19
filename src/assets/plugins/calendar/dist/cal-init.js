@@ -1,4 +1,4 @@
-function inicia() {
+function iniciaHorario() {
 
     var CalendarApp = function() {
         this.$body = $("body")

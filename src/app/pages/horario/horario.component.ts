@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-declare function inicia();
+declare function iniciaHorario();
 
 @Component({
   selector: 'app-horario',
@@ -11,7 +11,7 @@ export class HorarioComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    inicia();
+    iniciaHorario();
   }
 
 }

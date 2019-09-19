@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare function iniciaEstu();
 
 @Component({
   selector: 'app-estudiantes',
@@ -10,6 +11,7 @@ export class EstudiantesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    iniciaEstu();
   }
 
 }

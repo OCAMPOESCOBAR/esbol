@@ -47,95 +47,90 @@
 </form> -->
 
 
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Estudiantes</h4>
-                <h6 class="card-subtitle"></h6>
-                <div class="table-responsive">
-                    <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
-                        <thead>
-                            <tr>
-                                <th>Cédula</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Unidad</th>
-                                <th>Sección</th>
-                                <th>Borrar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1116276036</td>
-                                <td>Angelica</td>
-                                <td>Ocampo Escobar</td>
-                                <td>Simón Bolivar</td>
-                                <td><span class="label label-danger">Sección 1</span> </td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                                </td>
-                            </tr>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Módulo para la gestión de la información de los profesores</h4>
+        <div class="table-responsive m-t-40">
+            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
 
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="2">
-                                    <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Agregar</button>
-                                </td>
-                                <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                <h4 class="modal-title" id="myModalLabel">Agregar</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form class="form-horizontal form-material">
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 m-b-20">
-                                                            <input type="text" class="form-control" placeholder="Cédula"> </div>
-                                                        <div class="col-md-12 m-b-20">
-                                                            <input type="text" class="form-control" placeholder="Nombre"> </div>
-                                                        <div class="col-md-12 m-b-20">
-                                                            <input type="text" class="form-control" placeholder="Apellidos">
-                                                        </div>
-                                                        <div class="col-md-12 m-b-20">
-                                                            <select class="form-control form-white" data-placeholder="Seleccione una compañía" name="category-color">
-                                                                    <option value="success" ng-reflect-value="success">Simón Bolivar</option>
-                                                                    <option value="danger" ng-reflect-value="danger">La otra</option>
-                                                                </select>
-                                                        </div>
-                                                        <div class="col-md-12 m-b-20">
-                                                            <select class="form-control form-white" data-placeholder="Seleccione una sección" name="category-color">
-                                                                <option value="success" ng-reflect-value="success">Sección 1</option>
-                                                                <option value="danger" ng-reflect-value="danger">Sección 2</option>
-                                                                <option value="info" ng-reflect-value="info">Sección 3</option>
-                                                                <option value="primary" ng-reflect-value="primary">Sección 4</option>
-                                                                <option value="warning" ng-reflect-value="warning">Sección 5</option>
-                                                            </select>
-                                                        </div>
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Unidad</th>
+                        <th>Sección</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1116276036</td>
+                        <td>Angelica</td>
+                        <td>Ocampo Escobar</td>
+                        <td>Simón Bolivar</td>
+                        <td>Sección 1</td>
+                    </tr>
+                    <tr>
+                        <td>1112763960</td>
+                        <td>Danny</td>
+                        <td>Carrillo Torres</td>
+                        <td>Simón Bolivar</td>
+                        <td>Sección 3</td>
+                    </tr>
 
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
-                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                                            </div>
-                                        </div>
-                                        <!-- /.modal-content -->
+                </tbody>
+            </table>
+            <div colspan="2">
+                <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Agregar</button>
+            </div>
+            <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">Agregar</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal form-material">
+                                <div class="form-group">
+                                    <div class="col-md-12 m-b-20">
+                                        <input type="text" class="form-control" placeholder="Cédula"> </div>
+                                    <div class="col-md-12 m-b-20">
+                                        <input type="text" class="form-control" placeholder="Nombre"> </div>
+                                    <div class="col-md-12 m-b-20">
+                                        <input type="text" class="form-control" placeholder="Apellidos">
                                     </div>
-                                    <!-- /.modal-dialog -->
+                                    <div class="col-md-12 m-b-20">
+                                        <select class="form-control form-white" data-placeholder="Seleccione una compañía" name="category-color">
+                                                <option value="success" ng-reflect-value="success">Simón Bolivar</option>
+                                                <option value="danger" ng-reflect-value="danger">La otra</option>
+                                            </select>
+                                    </div>
+                                    <div class="col-md-12 m-b-20">
+                                        <select class="form-control form-white" data-placeholder="Seleccione una sección" name="category-color">
+                                            <option value="success" ng-reflect-value="success">Sección 1</option>
+                                            <option value="danger" ng-reflect-value="danger">Sección 2</option>
+                                            <option value="info" ng-reflect-value="info">Sección 3</option>
+                                            <option value="primary" ng-reflect-value="primary">Sección 4</option>
+                                            <option value="warning" ng-reflect-value="warning">Sección 5</option>
+                                        </select>
+                                    </div>
+
                                 </div>
-                                <td colspan="7">
-                                    <div class="text-right">
-                                        <ul class="pagination"> </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
+                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <div colspan="7">
+                <div class="text-right">
+                    <ul class="pagination"> </ul>
                 </div>
             </div>
         </div>

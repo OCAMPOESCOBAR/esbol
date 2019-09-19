@@ -1,4 +1,4 @@
-function inicia() {
+function iniciaClase() {
 
     jQuery(document).ready(function() {
         // Switchery
@@ -101,6 +101,8 @@ function inicia() {
                 return markup;
             }, // let our custom formatter work
             minimumInputLength: 1,
+            //templateResult: formatRepo, // omitted for brevity, see the source of this page
+            //templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
         });
     });
 }

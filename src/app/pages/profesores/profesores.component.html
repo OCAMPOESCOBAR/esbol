@@ -1,68 +1,101 @@
-<form>
-    <div class="form-row" style="font-size: 12px">
-        <div class="form-group col-md-2">
-            <label for="inputCedula">Cédula Docente</label>
-            <input type="text" class="form-control form-control-sm" id="inputCedula">
-        </div>
-        <div class="form-group col-md-3">
-            <label for="inputNombre">Nombres</label>
-            <input type="text" class="form-control form-control-sm" id="inputNombre">
-        </div>
-        <div class="form-group col-md-3">
-            <label for="inputApellido">Apellidos</label>
-            <input type="text" class="form-control form-control-sm" id="inputApellido">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputUnidad">Unidad</label>
-            <select id="inputUnidad" class="form-control form-control-sm">
-            <option selected style="font-size: 12px">Seleccione</option>
-            <option style="font-size: 12px">SIMÓN BOLIVAR</option>
-          </select>
-        </div>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Módulo para la gestión de la información de los profesores</h4>
+        <div class="table-responsive m-t-40">
+            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
 
-        <div class="form-group col-md-1">
-            <label for="inputCurso">N° Curso</label>
-            <input type="text" class="form-control form-control-sm" id="inputCurso">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputSeccion">Sección</label>
-            <select id="inputSeccion" class="form-control form-control-sm">
-          <option selected style="font-size: 12px">Seleccione</option>
-          <option style="font-size: 12px">Sección 1</option>
-          <option style="font-size: 12px">Sección 2</option>
-          <option style="font-size: 12px">Sección 3</option>
-          <option style="font-size: 12px">Sección 4</option>
-          <option style="font-size: 12px">Sección 5</option>
-        </select>
-        </div>
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Unidad</th>
+                        <th>Curso</th>
+                        <th>Sección</th>
+                        <th>Ciudad</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1116276036</td>
+                        <td>Angelica</td>
+                        <td>Ocampo Escobar</td>
+                        <td>Simón Bolivar</td>
+                        <td>11</td>
+                        <td>Sección 1</td>
+                        <td>Tuluá</td>
+                        <td>3166179047</td>
+                        <td>ocampoescobarangelica@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>1112763960</td>
+                        <td>Danny</td>
+                        <td>Carrillo Torres</td>
+                        <td>Simón Bolivar</td>
+                        <td>11</td>
+                        <td>Sección 3</td>
+                        <td>Tuluá</td>
+                        <td>312789432</td>
+                        <td>danny.carrillo@gmail.com</td>
+                    </tr>
 
-        <div class="form-group col-md-3">
-            <label for="inputApellido">Ciudad</label>
-            <input type="text" class="form-control form-control-sm" id="inputApellido">
-        </div>
-
-        <div class="form-group col-md-2">
-            <label for="inputCedula">Teléfono</label>
-            <input type="text" class="form-control form-control-sm" id="inputCedula">
-        </div>
-
-        <div class="form-group col-md-4">
-            <label for="inputApellido">Email</label>
-            <input type="email" class="form-control form-control-sm" id="inputApellido">
-        </div>
-        <div class="form-group col-md-4">
-            <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1" style="font-size: 12px">Hora Catedra</label>
+                </tbody>
+            </table>
+            <div colspan="2">
+                <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Agregar</button>
             </div>
-            <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2" style="font-size: 12px">Reemplazo a un docente</label>
+            <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">Agregar</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal form-material">
+                                <div class="form-group">
+                                    <div class="col-md-12 m-b-20">
+                                        <input type="text" class="form-control" placeholder="Cédula"> </div>
+                                    <div class="col-md-12 m-b-20">
+                                        <input type="text" class="form-control" placeholder="Nombre"> </div>
+                                    <div class="col-md-12 m-b-20">
+                                        <input type="text" class="form-control" placeholder="Apellidos">
+                                    </div>
+                                    <div class="col-md-12 m-b-20">
+                                        <select class="form-control form-white" data-placeholder="Seleccione una compañía" name="category-color">
+                                                <option value="success" ng-reflect-value="success">Simón Bolivar</option>
+                                                <option value="danger" ng-reflect-value="danger">La otra</option>
+                                            </select>
+                                    </div>
+                                    <div class="col-md-12 m-b-20">
+                                        <select class="form-control form-white" data-placeholder="Seleccione una sección" name="category-color">
+                                            <option value="success" ng-reflect-value="success">Sección 1</option>
+                                            <option value="danger" ng-reflect-value="danger">Sección 2</option>
+                                            <option value="info" ng-reflect-value="info">Sección 3</option>
+                                            <option value="primary" ng-reflect-value="primary">Sección 4</option>
+                                            <option value="warning" ng-reflect-value="warning">Sección 5</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Guardar</button>
+                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <div colspan="7">
+                <div class="text-right">
+                    <ul class="pagination"> </ul>
+                </div>
             </div>
         </div>
-
     </div>
-
-
-    <button type="submit" class="btn btn-primary">Registrar</button>
-</form>
+</div>
