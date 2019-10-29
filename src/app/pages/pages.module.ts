@@ -1,56 +1,56 @@
 import { NgModule } from '@angular/core';
-import { PAGES_ROUTES } from './pages.route';
+import { PAGES_ROUTES } from './pages.routes';
 
 import { SharedModule } from '../shared/shared.module'; 
 
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { PagesComponent } from './pages.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProgressComponent } from './progress/progress.component';
-import { Graficas1Component } from './graficas1/graficas1.component';
 import { AdminComponent } from './admin/admin.component';
 
-import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { HorarioComponent } from './horario/horario.component';
-import { ProfesoresComponent } from './profesores/profesores.component';
+import { DocentesComponent } from './docentes/docentes.component';
+import { DocenteComponent } from './docentes/docente.component';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
+import { EstudianteComponent } from './estudiantes/estudiante.component';
 import { MateriasComponent } from './materias/materias.component';
 import { ClaseComponent } from './clase/clase.component';
+import { ProfileComponent } from './profile/profile.component';
 
-
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
     declarations: [
         PagesComponent,
         DashboardComponent,
-        ProgressComponent,
-        Graficas1Component,
         AdminComponent,
-        IncrementadorComponent,
         HorarioComponent,
-        ProfesoresComponent,
+        DocentesComponent,
+        DocenteComponent,
         EstudiantesComponent,
+        EstudianteComponent,
         MateriasComponent,
-        ClaseComponent
+        ClaseComponent,
+        ProfileComponent
     ],
     exports: [
         DashboardComponent,
-        ProgressComponent,
-        Graficas1Component,
         AdminComponent,
-        IncrementadorComponent,
         HorarioComponent,
-        ProfesoresComponent,
+        DocentesComponent,
         EstudiantesComponent,
         MateriasComponent,
         ClaseComponent
     ],
     imports: [
+        CommonModule,
         SharedModule,
         PAGES_ROUTES,
-        FormsModule
+        FormsModule,
+        FullCalendarModule,
     ]
 })
 

@@ -1,0 +1,89 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Nuevo Docente:</h3>
+            <br>
+            <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarDocente(f)" class="form">
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Cédula</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="docente.cedula" name="cedula" class="form-control" type="number" placeholder="Cédula">
+                    </div>
+                </div>
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Nombres</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="docente.nombres" name="nombres" class="form-control" type="text" placeholder="Nombres">
+                    </div>
+                </div>
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Apellidos</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="docente.apellidos" name="apellidos" class="form-control" type="text" placeholder="Apellidos">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Compañía</label>
+                    <div class="col-10">
+                        <select (change)="obtenerCompanias($event.target.value)" [(ngModel)]="docente.compania" name="compania" class="custom-select col-12">
+                            <option value="">Selecciona una Compañía</option>
+                            <option *ngFor="let compania of companias" [value]="compania._id">{{ compania.nombre }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Curso</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="docente.curso" name="curso" class="form-control" type="text" placeholder="Curso">
+                    </div>
+                </div>
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Sección</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="docente.seccion" name="seccion" class="form-control" type="text" placeholder="Sección">
+                    </div>
+                </div>
+                <!-- <div class="form-group row">
+                    <label class="col-2 col-form-label">Sección</label>
+                    <div class="col-10">
+                        <select (change)="obtenerSecciones($event.target.value)" [(ngModel)]="docente.compania" name="compania" class="custom-select col-12">
+                            <option value="">Selecciona una Sección</option>
+                            <option *ngFor="let seccion of secciones" [value]="compania.secciones">{{ compania.secciones }}</option>
+                        </select>
+                    </div>
+                </div> -->
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Ciudad</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="docente.ciudad" name="ciudad" class="form-control" type="text" placeholder="Ciudad">
+                    </div>
+                </div>
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Teléfono</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="docente.telefono" name="telefono" class="form-control" type="text" placeholder="Teléfono">
+                    </div>
+                </div>
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Correo</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="docente.email" name="correo" class="form-control" type="email" placeholder="Correo">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Tipo</label>
+                    <div class="col-10">
+                        <select [(ngModel)]="docente.tipo" name="tipo" class="custom-select col-12">
+                            <option value="">Selecciona un tipo</option>
+                            <option value="Hora Cátedra">Hora Cátedra</option>
+                            <option value="Docente Policial">Docente Policial</option>
+                            <option value="Suplente">Suplente</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10"><i class="fa fa-save"></i> Guardar</button>
+                <a routerLink="/docentes" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-angle-double-left"></i> Atrás</a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,2 +1,10 @@
-export { SharedService } from './shared/shared.service'
-export { SidebarService } from './shared/sidebar.service'
+export { LoginGuardGuard } from './guards/login-guard.guard';
+export { DocenteService } from './docente/docente.service';
+export { EstudianteService } from './estudiante/estudiante.service';
+export { AsignaturaService } from './asignatura/asignatura.service';
+export { ClaseService } from './clase/clase.service';
+export { CompaniaService } from './compania/compania.service';
+export { SeccionService } from './seccion/seccion.service';
+export { UsuarioService } from './usuario/usuario.service';
+export { SharedService } from './shared/shared.service';
+export { SidebarService } from './shared/sidebar.service';

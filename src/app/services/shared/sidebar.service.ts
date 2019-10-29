@@ -5,13 +5,14 @@ export class SidebarService {
 
   menu: any = [
     {
-      titulo: 'Aplicaciones',
+      titulo: 'Módulos',
       icono: 'mdi mdi-bullseye',
       submenu: [
-        { titulo: 'Profesores', url: '/profesores' },
+        { titulo: 'Docentes', url: '/docentes' },
         { titulo: 'Estudiantes', url: '/estudiantes' },
         { titulo: 'Horario', url: '/horario' },
-        { titulo: 'Materias', url: '/materias' }
+        { titulo: 'Asignaturas', url: '/materias' },
+        { titulo: 'Clase', url: '/clase' }
       ]
     }
   ];

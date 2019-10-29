@@ -1,0 +1,48 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Nuevo Estudiante:</h3>
+            <br>
+            <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarEstudiante(f)" class="form">
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Cédula</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="estudiante.cedula" name="cedula" class="form-control" type="number" placeholder="Cédula">
+                    </div>
+                </div>
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Nombres</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="estudiante.nombres" name="nombres" class="form-control" type="text" placeholder="Nombres">
+                    </div>
+                </div>
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Apellidos</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="estudiante.apellidos" name="apellidos" class="form-control" type="text" placeholder="Apellidos">
+                    </div>
+                </div>
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Programa</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="estudiante.programa" name="programa" class="form-control" type="text" placeholder="Programa">
+                    </div>
+                </div>
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Compañía</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="estudiante.compania" name="compania" class="form-control" type="text" placeholder="Compañía">
+                    </div>
+                </div>
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Sección</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="estudiante.seccion" name="seccion" class="form-control" type="text" placeholder="Sección">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10"><i class="fa fa-save"></i> Guardar</button>
+                <a routerLink="/estudiantes" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-angle-double-left"></i> Atrás</a>
+            </form>
+        </div>
+    </div>
+</div>
