@@ -1,3 +1,4 @@
+import { Asignatura } from './asignatura.model';
 export class Docente {
 
     constructor(
@@ -11,6 +12,7 @@ export class Docente {
         public telefono: string,
         public email: string,
         public tipo: string,
+        public asignaturas?: Asignatura[],
         public _id?: string
     ) { }
 

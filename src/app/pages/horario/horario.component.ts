@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Asignatura } from 'src/app/models/asignatura.model';
-import { AsignaturaService } from '../../services/service.index';
-import { Clase } from 'src/app/models/clase.model';
-import { ClaseService } from '../../services/clase/clase.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Docente } from 'src/app/models/docente.model';
+import { DocenteService } from '../../services/docente/docente.service';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
+import interactionPlugin from '@fullcalendar/interaction';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import { EventInput } from '@fullcalendar/core';
 import Swal from 'sweetalert2';
+import { Clase } from 'src/app/models/clase.model';
+import { ClaseService } from '../../services/clase/clase.service';
 
 
 @Component({
@@ -17,52 +18,79 @@ import Swal from 'sweetalert2';
   styles: []
 })
 export class HorarioComponent implements OnInit {
-  
-  asignaturas: Asignatura[] = [];
-  asignatura: Asignatura = new Asignatura('', '', '', '', '');
 
-  clases: Clase[] = [];
+  docente: Docente = new Docente('', '', '', '', '', '', '', '', '', '');
+
+  clases: Clase[] = []
   clase: Clase = new Clase('', '', '');
 
   @ViewChild('calendario', null) calendarComponent: FullCalendarComponent;
-  //@ViewChild('externos', null) externos: ElementRef;
 
   calendarPlugins = [dayGridPlugin, timeGridPlugin, interactionPlugin];
-  calendarEvents: EventInput[] = [{ id: '0', title: 'Event Now', start: '2019-10-22T07:00:00', end:'2019-10-22T08:00:00' }];
+  calendarEvents: EventInput[] = [{ id: '0', title: 'Event Now', start: '2019-11-06T10:00:00', end:'2019-11-06T12:00:00' }];
   
   constructor(
-    public _asignaturaService: AsignaturaService,
-    public _claseService: ClaseService
-  ) { }
+    public _docenteService: DocenteService,
+    public _claseService: ClaseService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute
+  ) {
+    activatedRoute.params.subscribe(params => {
+      let id = params['id'];
+
+      if(id != 'nuevo') {
+        this.cargarDocente(id);
+      }
+    });
+  }
 
 
   ngOnInit() {
-    this.cargarAsignaturas();
   }
 
-  /* ngAfterViewInit() {
-    new Draggable(this.externos.nativeElement, {
-      itemSelector: '.fc-event'
-  });
-  } */
+
+  cargarDocente(id: string) {
+    this._docenteService.obtenerDocente(id)
+      .subscribe(docente => {
+        this.docente = docente;
+        console.log(docente);
+      });
+  }
 
 
-  cargarAsignaturas() {
-    this._asignaturaService.cargarAsignaturas()
-      .subscribe(asignaturas => this.asignaturas = asignaturas);
+  crearClase(asignatura: string, horaInicio: string, horaFin: string) {
+    this.clase.asignatura = asignatura;
+    this.clase.horaInicio = horaInicio;
+    this.clase.horaFin = horaFin;
+
+    return this._claseService.crearClase(this.clase);
+      /* .subscribe(clase => {
+        this.clase = clase;
+      }); */
+  }
+
+
+  actualizarClase(id: string, horaInicio: string, horaFin: string) {
+    this.clase._id = id;
+    this.clase.horaInicio = horaInicio;
+    this.clase.horaFin = horaFin;
+
+    //console.log(this.clase._id);
+    /* this._claseService.guardarClase(this.clase)
+      .subscribe(clase => {
+        console.log(clase);
+      }); */
   }
   
 
   selectDate(info) {
-    let titulo = this.calendarEvents.length;
-
     let opciones = {};
     let ids: string;
     let names: string;
 
-    for(let i in this.asignaturas) {
-      ids = this.asignaturas[i]._id;
-      names = this.asignaturas[i].nombre;
+    for(let i in this.docente.asignaturas) {
+      ids = this.docente.asignaturas[i].nombre;
+      names = this.docente.asignaturas[i].nombre;
       opciones[ids] = names;
     }
 
@@ -77,11 +105,14 @@ export class HorarioComponent implements OnInit {
           if(!value){
             resolve('Debes seleccionar una Asignatura')
           } else {
-            this.calendarEvents = this.calendarEvents.concat({
-              id: titulo + '',
-              title: value,
-              start: info.startStr,
-              end: info.endStr
+            let nuevaClase = this.crearClase(value, info.startStr, info.endStr);
+            nuevaClase.subscribe(clase => {
+              this.calendarComponent.getApi().addEvent({
+                id: clase._id,
+                title: value,
+                start: info.startStr,
+                end: info.endStr
+              });
             });
             resolve();
           }
@@ -103,12 +134,11 @@ export class HorarioComponent implements OnInit {
       cancelButtonText: "Cancelar"
     }).then((cambiar) => {
       if(cambiar.value) {
-        this.calendarComponent.events[info.event.id] = {
-          id: info.event.id,
-          title: info.event.title,
-          start: info.event.start,
-          end: info.event.end
-        };
+        let evento = this.calendarComponent.getApi().getEventById(info.event.id);
+        evento.setStart(info.event.start);
+        evento.setEnd(info.event.end);
+
+        //this.actualizarClase(info.event.start, info.event.end);
       } else {
         info.revert();
       }
@@ -117,12 +147,11 @@ export class HorarioComponent implements OnInit {
 
 
   dropEvent(info) {
-    this.calendarComponent.events[info.event.id] = { 
-      id: info.event.id, 
-      title: info.event.title,
-      start: info.event.start,
-      end:info.event.end
-    };
+    let evento = this.calendarComponent.getApi().getEventById(info.event.id);
+    evento.setStart(info.event.start);
+    evento.setEnd(info.event.end);
+
+    this.actualizarClase(info.event.id, info.event.start, info.event.end);
   }
 
 
@@ -138,8 +167,10 @@ export class HorarioComponent implements OnInit {
       cancelButtonText: "Cancelar"
     }).then((eliminar) => {
       if(eliminar.value) {
-        console.log(eliminar.value);
-        this.calendarEvents.splice(info.event.id, 1);
+        this._claseService.eliminarClase(info.event.id)
+          .subscribe(() => {
+            Swal.fire('Clase Eliminada', 'success');
+          });
         info.event.remove();
       }
     });
@@ -178,42 +209,8 @@ export class HorarioComponent implements OnInit {
 
 
   eventos() {
-    console.log(this.calendarEvents);
+    //console.log(this.calendarComponent.getApi().getEvents());
+    console.log(this.docente.asignaturas[0]._id);
   }
-
-
-  /* dropExternalEvent(info) {
-    let titulo = this.calendarEvents.length;
-    this.calendarEvents = this.calendarEvents.concat({
-      id: titulo + '',
-      title: info.draggedEl.innerText,
-      start: info.date,
-      end: this.aumentarHora(info.date)
-    });
-  } */
-
-
-  /* async clickEvent(info) {
-    const { value: ipAddress } = await Swal.fire({
-      title: 'Enter your IP address',
-      input: 'text',
-      showCancelButton: true,
-      inputValidator: (value) => {
-        if (!value) {
-          return 'You need to write something!'
-        }
-      }
-    })
-    
-    if (ipAddress) {
-      this.calendarComponent.events[info.events.id] = {
-        id: info.event.id,
-        title: ipAddress,
-        start: info.event.start,
-        end:info.event.end 
-      };
-      info.event.setProp('title', ipAddress);
-    }
-  } */
 
 }

@@ -29,7 +29,7 @@ export class DocenteService {
         return resp.docentes;
       })); */
   }
-
+  
 
   obtenerDocente(id: string) {
     let url = URL_SERVICIOS + '/docente/' + id;
@@ -44,15 +44,6 @@ export class DocenteService {
     let url = URL_SERVICIOS + '/docente/' + id + '?token=' + this._usuarioService.token;
 
     return this.http.delete(url);
-  }
-
-
-  crearDocente(docente: Docente) {
-    let url = URL_SERVICIOS + '/docente?token=' + this._usuarioService.token;
-
-    return this.http.post(url, docente).pipe(
-      map((resp: any) => resp.docente)
-    );
   }
 
 

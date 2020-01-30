@@ -42,15 +42,6 @@ export class EstudianteService {
   }
 
 
-  crearEstudiante(estudiante: Estudiante) {
-    let url = URL_SERVICIOS + '/estudiante?token=' + this._usuarioService.token;
-
-    return this.http.post(url, estudiante).pipe(
-      map((resp: any) => resp.estudiante)
-    );
-  }
-
-
   buscarEstudiante(termino: string) {
     let url = URL_SERVICIOS + '/busqueda/coleccion/estudiantes/' + termino;
 

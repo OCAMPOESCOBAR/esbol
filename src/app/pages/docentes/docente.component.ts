@@ -19,7 +19,7 @@ export class DocenteComponent implements OnInit {
   seccion: Seccion = new Seccion('');
   secciones: Seccion[] = [];
 
-  docente: Docente = new Docente('', '', '', '', '', '', '', '', '', '', '');
+  docente: Docente = new Docente('', '', '', '', '', '', '', '', '', '');
 
   constructor(
     public _docenteService: DocenteService,
@@ -47,8 +47,8 @@ export class DocenteComponent implements OnInit {
     this._docenteService.obtenerDocente(id)
       .subscribe(docente => {
         this.docente = docente;
-        this.docente.compania = docente.compania._id;
-        this.obtenerCompanias(this.docente.compania);
+/*         this.docente.compania = docente.compania;
+        this.obtenerCompanias(this.docente.compania); */
       });
   }
 

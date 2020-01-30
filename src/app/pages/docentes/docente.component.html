@@ -1,7 +1,7 @@
 <div class="row animated fadeIn">
     <div class="col-12">
         <div class="card card-body">
-            <h3 class="box-title m-b-0">Nuevo Docente:</h3>
+            <h3 class="box-title m-b-0">Actualizar/Nuevo Docente:</h3>
             <br>
             <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarDocente(f)" class="form">
                 <div class="form-group row">
@@ -22,7 +22,13 @@
                         <input [(ngModel)]="docente.apellidos" name="apellidos" class="form-control" type="text" placeholder="Apellidos">
                     </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group m-t-40 row">
+                    <label class="col-2 col-form-label">Compañía</label>
+                    <div class="col-10">
+                        <input [(ngModel)]="docente.compania" name="compania" class="form-control" type="text" placeholder="Compañía">
+                    </div>
+                </div>
+                <!-- <div class="form-group row">
                     <label class="col-2 col-form-label">Compañía</label>
                     <div class="col-10">
                         <select (change)="obtenerCompanias($event.target.value)" [(ngModel)]="docente.compania" name="compania" class="custom-select col-12">
@@ -30,7 +36,7 @@
                             <option *ngFor="let compania of companias" [value]="compania._id">{{ compania.nombre }}</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
                 <div class="form-group m-t-40 row">
                     <label class="col-2 col-form-label">Curso</label>
                     <div class="col-10">
